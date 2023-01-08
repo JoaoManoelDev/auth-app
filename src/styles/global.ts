@@ -21,4 +21,15 @@ export const globalStyles = globalCss({
   button: {
     cursor: 'pointer',
   },
+
+  img: {
+    display: 'block',
+  },
+
+  // '.container': {
+  //   width: '100%',
+  //   maxWidth: '70rem',
+  //   marginRight: 'auto',
+  //   marginLeft: 'auto',
+  // },
 })
