@@ -11,7 +11,7 @@ export const HomeContainer = styled('div', {
 export const FormContainer = styled('div', {
   background: '$gray800',
   width: '26rem',
-  height: '24rem',
+  minHeight: '24rem',
   padding: '2.5rem 2rem',
 
   h1: {
@@ -29,8 +29,7 @@ export const FormContainer = styled('div', {
 export const FormContent = styled('form', {
   display: 'flex',
   flexDirection: 'column',
-  gap: '0.5rem',
-  marginTop: '3rem',
+  marginTop: '2rem',
 
   input: {
     padding: '1rem',
@@ -39,15 +38,16 @@ export const FormContent = styled('form', {
     background: '$gray900',
     color: '$white',
     outline: 0,
+    marginTop: '0.7rem',
 
     '&::placeholder': {
-      color: '$gray100',
+      color: '$gray500',
     },
   },
 
   button: {
     padding: '0.6rem',
-    marginTop: '0.4rem',
+    marginTop: '0.6rem',
     borderRadius: '6px',
     border: 0,
     fontWeight: 'bold',
@@ -84,11 +84,16 @@ export const SocialsLogin = styled('div', {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '0.25rem',
 
     '&:hover': {
       transition: '0.2s',
       background: '$gray700',
     },
   },
+})
+
+export const FormError = styled('span', {
+  color: '#F75A68',
+  fontSize: '0.8rem',
+  marginTop: '0.25rem',
 })
