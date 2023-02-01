@@ -1,4 +1,4 @@
-import { GithubLogo } from 'phosphor-react'
+import { FaGoogle } from 'react-icons/fa'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -11,7 +11,7 @@ import {
 } from './styles'
 
 const formLoginSchema = z.object({
-  email: z.string().email({ message: '* Digite um e-mail válido' }),
+  email: z.string().email({ message: '* Digite um e-mail válido.' }),
   password: z
     .string()
     .min(3, { message: '* A senha deve ter no mínimo 3 caracteres.' }),
@@ -28,7 +28,7 @@ export default function Home() {
     resolver: zodResolver(formLoginSchema),
   })
 
-  async function handleFormLogin(data: FormLoginData) {
+  async function handleLoginForm(data: FormLoginData) {
     console.log(data)
   }
 
@@ -37,7 +37,7 @@ export default function Home() {
       <FormContainer>
         <h1>Entre com seu login</h1>
 
-        <FormContent onSubmit={handleSubmit(handleFormLogin)}>
+        <FormContent onSubmit={handleSubmit(handleLoginForm)}>
           <input type="email" placeholder="E-mail" {...register('email')} />
           {errors.email && <FormError>{errors.email.message}</FormError>}
 
@@ -55,8 +55,7 @@ export default function Home() {
 
         <SocialsLogin>
           <button>
-            <GithubLogo size={20} />
-            GitHub
+            <FaGoogle size={20} />
           </button>
         </SocialsLogin>
       </FormContainer>

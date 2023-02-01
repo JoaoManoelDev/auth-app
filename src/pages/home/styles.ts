@@ -84,6 +84,7 @@ export const SocialsLogin = styled('div', {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: '0.25rem',
 
     '&:hover': {
       transition: '0.2s',
