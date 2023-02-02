@@ -20,6 +20,10 @@ const formLoginSchema = z.object({
 
 type FormLoginData = z.infer<typeof formLoginSchema>
 
+async function handleSignIn() {
+  await signIn('google')
+}
+
 export default function Home() {
   const {
     register,
@@ -55,7 +59,7 @@ export default function Home() {
         <p>Ainda não possui uma conta? clique aqui.</p>
 
         <SocialsLogin>
-          <button onClick={() => signIn('google')}>
+          <button onClick={handleSignIn}>
             <FaGoogle size={20} />
           </button>
         </SocialsLogin>
