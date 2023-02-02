@@ -9,6 +9,7 @@ import {
   HomeContainer,
   SocialsLogin,
 } from './styles'
+import { signIn } from 'next-auth/react'
 
 const formLoginSchema = z.object({
   email: z.string().email({ message: '* Digite um e-mail válido.' }),
@@ -54,7 +55,7 @@ export default function Home() {
         <p>Ainda não possui uma conta? clique aqui.</p>
 
         <SocialsLogin>
-          <button>
+          <button onClick={() => signIn('google')}>
             <FaGoogle size={20} />
           </button>
         </SocialsLogin>
