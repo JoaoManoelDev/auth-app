@@ -1,5 +1,5 @@
 import { Adapter } from 'next-auth/adapters'
-import { prisma } from '../prisma'
+import { prisma } from '../../lib/prisma'
 
 export function PrismaAdapter(): Adapter {
   return {
@@ -12,13 +12,14 @@ export function PrismaAdapter(): Adapter {
         },
       })
 
-      if (!prismaUser) return null
+      console.log('user', user)
+      console.log('prismaUser', prismaUser)
 
       return {
-        id: prismaUser?.id,
-        name: prismaUser?.name,
-        email: prismaUser?.email,
-        avatar_url: prismaUser?.avatar_url!,
+        id: prismaUser.id,
+        email: prismaUser.email,
+        name: prismaUser.name,
+        avatar_url: prismaUser.avatar_url!,
         emailVerified: null,
       }
     },
@@ -191,7 +192,13 @@ export function PrismaAdapter(): Adapter {
       }
     },
 
-    // async deleteSession(sessionToken) {},
+    async deleteSession(sessionToken) {
+      await prisma.session.delete({
+        where: {
+          session_token: sessionToken,
+        },
+      })
+    },
 
     // async createVerificationToken({ identifier, expires, token }) {},
 
