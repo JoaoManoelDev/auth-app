@@ -5,7 +5,7 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "@/ui/globals.css",
+    "css": "@auth/ui/globals.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
