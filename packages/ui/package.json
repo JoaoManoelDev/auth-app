@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "exports": {
-    "./*": "./components/*.tsx",
+    "./components/*": "./components/*.tsx",
     "./globals.css": "./globals.css",
     "./lib/*": "./lib/*.ts"
   },
