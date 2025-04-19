@@ -4,7 +4,8 @@
   "description": "",
   "exports": {
     "./*": "./components/*.tsx",
-    "./globals.css": "./globals.css"
+    "./globals.css": "./globals.css",
+    "./lib/*": "./lib/*.ts"
   },
   "private": "true",
   "scripts": {
@@ -14,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.4",
     "clsx": "^2.1.1",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
