@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: auth-db
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=auth-db
+    #   - PGDATA=/data/postgres
+    # volumes:
+    #   - ./data/pg:/data/postgres
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    ports:
+      - 5050:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    depends_on:
+      - postgres

@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String  @id @default(uuid())
+  email              String  @unique
+  name               String
+  password           String
+  hashedRefreshToken String? @map("hashed_refresh_token")
+  role               Role    @default(USER)
+
+  posts    Post[]
+  comments Comement[]
+}
+
+model Post {
+  id           String  @id @default(uuid())
+  slug         String  @unique
+  title        String
+  description  String
+  img          String?
+  views        Int     @default(0)
+  categorySlug String  @map("category_slug")
+  userEmail    String  @map("user_id")
+  categoryId   String  @map("category_id")
+
+  user     User?     @relation(fields: [userEmail], references: [id])
+  category Category? @relation(fields: [categoryId], references: [id])
+
+  comments Comement[]
+}
+
+model Comement {
+  id        String   @id @default(uuid())
+  text      String
+  createdAt DateTime @default(now())
+  userId    String   @map("user_id")
+  postId    String?  @map("post_id")
+
+  user User? @relation(fields: [userId], references: [id])
+  post Post? @relation(fields: [postId], references: [id])
+}
+
+model Category {
+  id    String  @id @default(uuid())
+  slug  String  @unique
+  title String
+  img   String?
+
+  posts Post[]
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+  USER
+}
