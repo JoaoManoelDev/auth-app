@@ -9,7 +9,7 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post("/signup")
-  async create(@Body(new ValidationPipe()) createUserDTO: CreateUserDTO) {
+  async signup(@Body(new ValidationPipe()) createUserDTO: CreateUserDTO) {
     await this.authService.registerUser(createUserDTO);
   }
 }
