@@ -1,19 +1,21 @@
 import Link from "next/link";
 
-import { Button } from "@auth/ui/button";
+import { SignupForm } from "@/components/auth/signup-form";
 
 const SignupPage = () => {
   return (
-    <div className="p-8 rounded-lg shadow-lg w-96 flex flex-col justify-center items-center">
-      <h1 className="text-center text-2xl font-bold mb-4">Sign In Page</h1>
+    <div className="rounded-lg shadow-lg gap-8 w-sm flex flex-col justify-center items-center p-5">
+      <h1 className="text-center text-2xl font-bold">Cadastre-se</h1>
 
-      <Button>Test</Button>
+      <div className="w-full">
+        <SignupForm />
+      </div>
 
-      <div className="flex justify-between text-sm">
+      <div className="flex justify-between text-sm gap-1">
         <p>Já possuí uma conta?</p>
 
         <Link className="underline" href="/signin">
-          Ja possui uma conta?
+          Entrar
         </Link>
       </div>
     </div>
