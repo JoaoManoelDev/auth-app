@@ -12,8 +12,7 @@ export class AuthService {
 
     if (user) {
       throw new ConflictException({
-        message: "User already exists.",
-        errorKey: "user_already_exists",
+        message: "user_already_exists",
       });
     }
 
