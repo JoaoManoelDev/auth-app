@@ -5,7 +5,7 @@ export class CreateUserDTO {
   name!: string;
 
   @IsString()
-  @IsEmail({}, { message: "email must be valid" })
+  @IsEmail({}, { message: "email_must_be_valid" })
   email!: string;
 
   @IsString()
