@@ -1,12 +1,14 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Controller, Post, Request, UseGuards } from "@nestjs/common";
 
-import { ValidationPipe } from "src/pipes/class-validator-pipe";
-import { SigninDTO } from "../dto/signin-dto";
+import { AuthLocalGuard } from "../guards/auth-local.guard";
 
 @Controller("/signin")
 export class SigninController {
   constructor() {}
 
   @Post()
-  async signin(@Body(new ValidationPipe()) signinDTO: SigninDTO) {}
+  @UseGuards(AuthLocalGuard)
+  async signin(@Request() request) {
+    return request.user;
+  }
 }
