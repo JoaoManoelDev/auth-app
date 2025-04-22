@@ -11,7 +11,7 @@ interface SigninResponse {
     status: number;
     message?: string;
     name?: string;
-  } | null;
+  };
 }
 
 export const signin = async (
@@ -34,6 +34,6 @@ export const signin = async (
 
   return {
     isError: true,
-    dataError: null,
+    dataError: await response.json(),
   };
 };
