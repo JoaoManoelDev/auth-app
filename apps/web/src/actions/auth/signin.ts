@@ -1,3 +1,5 @@
+"use server";
+
 interface SigninRequest {
   email: string;
   password: string;
