@@ -18,6 +18,8 @@ model User {
 
   posts    Post[]
   comments Comement[]
+
+  @@map("users")
 }
 
 model Post {
@@ -35,6 +37,8 @@ model Post {
   category Category? @relation(fields: [categoryId], references: [id])
 
   comments Comement[]
+
+  @@map("posts")
 }
 
 model Comement {
@@ -46,6 +50,8 @@ model Comement {
 
   user User? @relation(fields: [userId], references: [id])
   post Post? @relation(fields: [postId], references: [id])
+
+  @@map("comments")
 }
 
 model Category {
@@ -55,6 +61,8 @@ model Category {
   img   String?
 
   posts Post[]
+
+  @@map("categories")
 }
 
 enum Role {
