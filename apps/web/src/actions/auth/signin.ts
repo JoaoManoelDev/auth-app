@@ -1,5 +1,7 @@
 "use server";
 
+import { createSession } from "@/services/session";
+
 interface SigninRequest {
   email: string;
   password: string;
@@ -26,9 +28,21 @@ export const signin = async (
   });
 
   if (response.status === 201) {
+    const data: { id: string; name: string } = await response.json();
+
+    await createSession({
+      user: {
+        id: data.id,
+        name: data.name,
+      },
+    });
+
     return {
       isError: false,
-      data: await response.json(),
+      data: {
+        name: data.name,
+        status: 200,
+      },
     };
   }
 
