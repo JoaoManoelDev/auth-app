@@ -13,7 +13,7 @@ export class AuthLocalGuard extends AuthGuard("local") {
   handleRequest<TUser>(err: ErrorMessage | null, user: TUser): TUser {
     if (err || !user) {
       throw new UnauthorizedException({
-        message: err ? err?.response?.message : "unauthorized",
+        message: err?.response?.message ?? "unauthorized",
         statusCode: 401,
       });
     }
