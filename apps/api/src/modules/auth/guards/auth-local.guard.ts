@@ -12,7 +12,6 @@ interface ErrorMessage {
 export class AuthLocalGuard extends AuthGuard("local") {
   handleRequest<TUser>(err: ErrorMessage | null, user: TUser): TUser {
     if (err || !user) {
-      console.log("ERROR", err);
       throw new UnauthorizedException({
         message: err ? err?.response?.message : "unauthorized",
         statusCode: 401,
