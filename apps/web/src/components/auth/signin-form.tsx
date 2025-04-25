@@ -34,12 +34,11 @@ export const SigninForm = () => {
     });
 
     if (!response.isError) {
-      return toast.success(`Bem-vindo ${response?.dataError?.name}`);
+      return toast.success(`Bem-vindo ${response?.data?.name}`);
     }
 
     return toast.error(
-      response.dataError?.message ??
-        "Erro inesperado, tente novamente mais tarde."
+      response.data?.message ?? "Erro inesperado, tente novamente mais tarde."
     );
   };
 
