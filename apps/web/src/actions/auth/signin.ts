@@ -7,7 +7,7 @@ interface SigninRequest {
 
 interface SigninResponse {
   isError: boolean;
-  dataError: {
+  data?: {
     status: number;
     message?: string;
     name?: string;
@@ -28,12 +28,12 @@ export const signin = async (
   if (response.status === 201) {
     return {
       isError: false,
-      dataError: await response.json(),
+      data: await response.json(),
     };
   }
 
   return {
     isError: true,
-    dataError: await response.json(),
+    data: await response.json(),
   };
 };
