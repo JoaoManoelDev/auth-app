@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-
 import { AppHeader } from "@/components/app-header";
 
 const geistSans = Geist({
@@ -28,12 +27,12 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`flex justify-center h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`flex justify-center  ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Toaster />
         <div className="w-full">
-          <Toaster />
           <AppHeader />
-          <div className="max-w-7xl mx-auto p-4">{children}</div>
+          <div className="max-w-7xl mx-auto px-4 ">{children}</div>
         </div>
       </body>
     </html>
