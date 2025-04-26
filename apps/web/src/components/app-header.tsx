@@ -4,7 +4,7 @@ import { SigninButton } from "./signin-button";
 
 export const AppHeader = () => {
   return (
-    <header className="border-b flex gap-3 items-center justify-center h-16">
+    <header className="border-b flex gap-3 items-center justify-center h-16 absolute top-0 right-0 left-0 w-[calc(100vw-1.063)]">
       <div className="p-4 max-w-7xl w-full">
         <div className="flex items-center justify-between">
           <nav
@@ -13,6 +13,7 @@ export const AppHeader = () => {
           >
             <Link href="/">Home</Link>
             <Link href="/dashboard">Dashboard</Link>
+            <Link href="/profile">Perfil</Link>
           </nav>
 
           <SigninButton />
