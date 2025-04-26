@@ -56,3 +56,11 @@ export const getSession = async () => {
     redirect("/");
   }
 };
+
+export const deleteSession = async () => {
+  const cookies = await cookiesHeaders();
+
+  cookies.delete("session");
+
+  redirect("/signin");
+};
