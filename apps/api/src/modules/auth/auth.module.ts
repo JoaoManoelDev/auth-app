@@ -5,11 +5,12 @@ import { ConfigService } from "@nestjs/config";
 import { SigninController } from "./controllers/signin.controller";
 import { SignupController } from "./controllers/signup.controller";
 
-import { AuthService } from "./auth.service";
 import { UserService } from "src/modules/user/user.service";
 import { PrismaService } from "src/prisma/prisma.service";
 import { LoginService } from "./services/login.service";
+import { RegisterUserService } from "./services/register-user.service";
 import { GenerateTokensService } from "./services/generate-tokens.service";
+import { ValidateLocalUserService } from "./services/validate-local-user.service";
 import { LocalStrategy } from "./strategies/local.strategy";
 import { Env } from "src/env";
 
@@ -33,9 +34,10 @@ import { Env } from "src/env";
   providers: [
     PrismaService,
     LocalStrategy,
-    AuthService,
     UserService,
     LoginService,
+    RegisterUserService,
+    ValidateLocalUserService,
     GenerateTokensService,
   ],
 })
