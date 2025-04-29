@@ -16,6 +16,12 @@ interface SigninResponse {
   };
 }
 
+interface JsonResponseData {
+  id: string;
+  name: string;
+  accessToken: string;
+}
+
 export const signin = async (
   signinData: SigninRequest
 ): Promise<SigninResponse> => {
@@ -28,13 +34,14 @@ export const signin = async (
   });
 
   if (response.status === 201) {
-    const data: { id: string; name: string } = await response.json();
+    const data: JsonResponseData = await response.json();
 
     await createSession({
       user: {
         id: data.id,
         name: data.name,
       },
+      accessToken: data.accessToken,
     });
 
     return {
