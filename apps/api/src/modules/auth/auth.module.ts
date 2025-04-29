@@ -12,6 +12,7 @@ import { RegisterUserService } from "./services/register-user.service";
 import { GenerateTokensService } from "./services/generate-tokens.service";
 import { ValidateLocalUserService } from "./services/validate-local-user.service";
 import { LocalStrategy } from "./strategies/local.strategy";
+import { JWTStrategy } from "./strategies/jwt.strategy";
 import { Env } from "src/env";
 
 @Module({
@@ -34,6 +35,7 @@ import { Env } from "src/env";
   providers: [
     PrismaService,
     LocalStrategy,
+    JWTStrategy,
     UserService,
     LoginService,
     RegisterUserService,
