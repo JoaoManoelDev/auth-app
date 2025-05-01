@@ -10,7 +10,7 @@ export type Session = {
     name: string;
   };
   accessToken: string;
-  // refreshToken: string
+  refreshToken: string;
 };
 
 const secretKey = "Eg3A1AfPNi75hFVirBB8P8OYSFoi9pr4uxUztHkq5Bw=";
