@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { JwtModule } from "@nestjs/jwt";
-import { ConfigService } from "@nestjs/config";
+// import { ConfigService } from "@nestjs/config";
 
 import { SigninController } from "./controllers/signin.controller";
 import { SignupController } from "./controllers/signup.controller";
@@ -13,24 +13,10 @@ import { GenerateTokensService } from "./services/generate-tokens.service";
 import { ValidateLocalUserService } from "./services/validate-local-user.service";
 import { LocalStrategy } from "./strategies/local.strategy";
 import { JWTStrategy } from "./strategies/jwt.strategy";
-import { Env } from "src/env";
+// import { Env } from "src/env";
 
 @Module({
-  imports: [
-    JwtModule.registerAsync({
-      inject: [ConfigService],
-      global: true,
-      useFactory: async (config: ConfigService<Env, true>) => {
-        const jwtSecret = config.get("JWT_SECRET", { infer: true });
-        const jwtExpiresIn = config.get("JWT_EXPIRES_IN", { infer: true });
-
-        return {
-          signOptions: { expiresIn: jwtExpiresIn },
-          secret: jwtSecret,
-        };
-      },
-    }),
-  ],
+  imports: [JwtModule],
   controllers: [SigninController, SignupController],
   providers: [
     PrismaService,
@@ -44,3 +30,17 @@ import { Env } from "src/env";
   ],
 })
 export class AuthModule {}
+
+// JwtModule.registerAsync({
+//   inject: [ConfigService],
+//   global: true,
+//   useFactory: async (config: ConfigService<Env, true>) => {
+//     const jwtSecret = config.get("JWT_SECRET", { infer: true });
+//     const jwtExpiresIn = config.get("JWT_EXPIRES_IN", { infer: true });
+
+//     return {
+//       signOptions: { expiresIn: jwtExpiresIn },
+//       secret: jwtSecret,
+//     };
+//   },
+// }),
