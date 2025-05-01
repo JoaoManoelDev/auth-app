@@ -20,6 +20,7 @@ interface JsonResponseData {
   id: string;
   name: string;
   accessToken: string;
+  refreshToken: string;
 }
 
 export const signin = async (
@@ -42,6 +43,7 @@ export const signin = async (
         name: data.name,
       },
       accessToken: data.accessToken,
+      refreshToken: data.refreshToken,
     });
 
     return {
