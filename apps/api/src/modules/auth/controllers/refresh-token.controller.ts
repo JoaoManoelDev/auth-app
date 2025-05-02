@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from "@nestjs/common";
+import { Controller, Post, UseGuards } from "@nestjs/common";
 
 import { RefreshTokenGuard } from "../guards/refresh-token.guard";
 import { CurrentUser } from "../decorators/current-user-decorator";
