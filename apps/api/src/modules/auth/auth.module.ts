@@ -4,6 +4,7 @@ import { JwtModule } from "@nestjs/jwt";
 
 import { SigninController } from "./controllers/signin.controller";
 import { SignupController } from "./controllers/signup.controller";
+import { RefreshTokenController } from "./controllers/refresh-token.controller";
 
 import { UserService } from "src/modules/user/user.service";
 import { PrismaService } from "src/prisma/prisma.service";
@@ -13,19 +14,23 @@ import { GenerateTokensService } from "./services/generate-tokens.service";
 import { ValidateLocalUserService } from "./services/validate-local-user.service";
 import { LocalStrategy } from "./strategies/local.strategy";
 import { JWTStrategy } from "./strategies/jwt.strategy";
+import { RefreshTokenStrategy } from "./strategies/refresh-token.strategy";
+import { RefreshTokenService } from "./services/refresh-token.service";
 // import { Env } from "src/env";
 
 @Module({
   imports: [JwtModule],
-  controllers: [SigninController, SignupController],
+  controllers: [SigninController, SignupController, RefreshTokenController],
   providers: [
     PrismaService,
     LocalStrategy,
     JWTStrategy,
+    RefreshTokenStrategy,
     UserService,
     LoginService,
     RegisterUserService,
     ValidateLocalUserService,
+    RefreshTokenService,
     GenerateTokensService,
   ],
 })
