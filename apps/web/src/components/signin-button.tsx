@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { getSession } from "@/services/session";
+import { getSession } from "@/actions/session/get-session";
 import { SignoutButton } from "./signout-button";
 
 export const SigninButton = async () => {

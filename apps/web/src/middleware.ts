@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getSession } from "@/services/session";
+import { getSession } from "@/actions/session/get-session";
 
 const middleware = async (request: NextRequest) => {
   const session = await getSession();

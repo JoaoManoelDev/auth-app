@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import { SigninForm } from "@/components/auth/signin-form";
-import { getSession } from "@/services/session";
+import { getSession } from "@/actions/session/get-session";
 
 const SigninPage = async () => {
   const session = await getSession();

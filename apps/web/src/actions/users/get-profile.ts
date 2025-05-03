@@ -1,6 +1,6 @@
 "use server";
 
-import { getSession } from "@/services/session";
+import { getSession } from "@/actions/session/get-session";
 
 interface GetProfileResponseSuccess {
   isError: false;
