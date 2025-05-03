@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteSession } from "@/services/session";
+import { deleteSession } from "@/actions/session/delete-session";
 import { Button } from "@auth/ui/components/button";
 
 export const SignoutButton = () => {
