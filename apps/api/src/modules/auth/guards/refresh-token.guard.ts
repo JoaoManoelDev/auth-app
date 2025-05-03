@@ -11,11 +11,7 @@ interface ErrorMessage {
 
 export class RefreshTokenGuard extends AuthGuard("refresh-jwt") {
   handleRequest<TUser>(err: ErrorMessage | null, user: TUser): TUser {
-    console.log("USER", user);
-
     if (err || !user) {
-      console.log("ERROR", err);
-
       throw new UnauthorizedException({
         message: err?.response?.message ?? "unauthorized",
         statusCode: 401,
