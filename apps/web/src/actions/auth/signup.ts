@@ -2,6 +2,8 @@
 
 import { redirect } from "next/navigation";
 
+import { env } from "@/env";
+
 // export type SignupFormState =
 //   | {
 //       errors?: {
@@ -34,7 +36,7 @@ interface SignupResponse {
 export const signup = async (
   signupData: SignupRequest
 ): Promise<SignupResponse> => {
-  const response = await fetch("http://localhost:3333/auth/signup", {
+  const response = await fetch(`${env.SERVER_API}/auth/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
