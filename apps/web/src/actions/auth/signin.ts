@@ -1,6 +1,7 @@
 "use server";
 
-import { createSession } from "@/services/session";
+import { createSession } from "@/actions/session/create-session";
+import { env } from "@/env";
 
 interface SigninRequest {
   email: string;
@@ -26,7 +27,7 @@ interface JsonResponseData {
 export const signin = async (
   signinData: SigninRequest
 ): Promise<SigninResponse> => {
-  const response = await fetch("http://localhost:3333/auth/signin", {
+  const response = await fetch(`${env.SERVER_API}/auth/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -50,7 +51,7 @@ export const signin = async (
       isError: false,
       data: {
         name: data.name,
-        status: 200,
+        status: 201,
       },
     };
   }
